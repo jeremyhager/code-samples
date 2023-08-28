@@ -1,22 +1,27 @@
 GO_CMD=go
-GO_BUILD=${GO_CMD} build
+GO_BUILD=$(GO_CMD) build
 BIN_PATH=bin
 BINARY_NAME=code-samples
+GOARCH_x64=amd64
 
-default: build
+default: test build
 
-build: build-linux build-mac
-
-all: clean 
-	GOARCH=amd64 GOOS=darwin go build -o ${BINARY_NAME}-darwin main.go
-	GOARCH=amd64 GOOS=linux go build -o ${BINARY_NAME}-linux main.go
-	GOARCH=amd64 GOOS=windows go build -o ${BINARY_NAME}-windows main.go
+build: build-linux build-mac build-windows
 
 build-linux: clean
-	${GO_BUILD} GOOS=linux GOARCH=amd64 GOOS=linux --release --target-dir ${BINPATH}/code-samples-linux
+	GOARCH=$(GOARCH_x64) GOOS=linux $(GO_BUILD) -o $(BIN_PATH)/code-samples-linux
 
-build-linux: clean
-	${GO_BUILD} GOOS=linux GOARCH=amd64 GOOS=linux --release --target-dir ${BINPATH}/code-samples-mac
+build-mac: clean
+	GOARCH=$(GOARCH_x64) GOOS=darwin $(GO_BUILD) -o $(BIN_PATH)/code-samples-mac
+
+build-windows: clean
+	GOARCH=$(GOARCH_x64) GOOS=windows $(GO_BUILD) -o $(BIN_PATH)/code-samples-windows.exe
 
 clean:
-	rm -rf ${BIN_PATH}
+	rm -rf $(BIN_PATH)
+
+test:
+	$(GO_CMD) test ./...
+
+fmt:
+	$(GO_CMD) fmt ./...
