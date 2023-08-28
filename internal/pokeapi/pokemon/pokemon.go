@@ -15,6 +15,9 @@ func Get(id string) (Pokemon, error) {
 	}
 	var pokemon Pokemon
 
-	json.Unmarshal(pokeByte, &pokemon)
+	err = json.Unmarshal(pokeByte, &pokemon)
+	if err != nil {
+		return Pokemon{}, err
+	}
 	return pokemon, nil
 }
