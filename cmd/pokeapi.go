@@ -4,7 +4,7 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -19,7 +19,10 @@ code-samples pokeapi pokemon --id 1
 code-samples pokeapi pokemon bulbasaur
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("pokeapi called")
+		if len(args) == 0 {
+			cmd.Help()
+			os.Exit(0)
+		}
 	},
 }
 
