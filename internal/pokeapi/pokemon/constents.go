@@ -11,10 +11,10 @@ type Pokemon struct {
 	Order                  int                            `json:"order"`
 	Weight                 int                            `json:"weight"`
 	Abilities              []PokemonAbility               `json:"abilities"`
-	Forms                  pokeutility.NamedAPIResource   `json:"forms"`
+	Forms                  []pokeutility.NamedAPIResource `json:"forms"`
 	GameIndices            []pokeutility.VersionGameIndex `json:"game_indices"`
 	HeldItems              []PokemonHeldItem              `json:"held_items"`
-	LocationAreaEncounters []string                       `json:"location_area_encounters"`
+	LocationAreaEncounters string                         `json:"location_area_encounters"`
 	Moves                  []PokemonMove                  `json:"moves"`
 	PastTypes              []PokemonTypePast              `json:"past_types"`
 	Sprites                PokemonSprites                 `json:"sprites"`
@@ -56,13 +56,13 @@ type PokemonHeldItemVersion struct {
 
 type PokemonMove struct {
 	Move                pokeutility.NamedAPIResource `json:"move"`
-	VersionGroupDetails PokemonMoveVersion           `json:"version_group_details"`
+	VersionGroupDetails []PokemonMoveVersion         `json:"version_group_details"`
 }
 
 type PokemonMoveVersion struct {
 	MoveLearnMethod pokeutility.NamedAPIResource `json:"move_learn_method"`
 	VersionGroup    pokeutility.NamedAPIResource `json:"version_group"`
-	LevelLearnedAt  pokeutility.NamedAPIResource `json:"level_learned_at"`
+	LevelLearnedAt  int                          `json:"level_learned_at"`
 }
 
 type PokemonStat struct {
