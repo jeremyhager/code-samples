@@ -1,20 +1,17 @@
 # code-samples
-Code samples for different projects
+Code samples for different projects - all a work-in-progress.
 
-Currently a work in progress, but at the most basic level it can be run as follows:
-```shell
-go build .
-code-samples pokeapi pokemon 1
-```
+## pokeapi
+https://github.com/jeremyhager/pokeapi  
+An SDK for the pokeapi v2 written in Go
 
-Or by running `main.go` directly:
-```shell
-go run main.go pokeapi pokemon 1
-```
+## pokego
+https://github.com/jeremyhager/pokego  
+A cli that utilizes the pokeapi package
 
-Example output
-```shell
-❯ ./code-samples pokeapi pokemon 1
-pokemon info:
-{Name:bulbasaur Url:https://pokeapi.co/api/v2/pokemon-species/1/}
-```
+## pokedex-website
+https://github.com/jeremyhager/pokedex-website  
+A website built from [Docusarus](https://docusaurus.io/), for looking up pokemon. Utilizes pokeapi.
+
+# Planned
+Terraform (for creating infrastructure needed for the pokedex)
