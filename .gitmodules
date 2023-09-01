@@ -1,0 +1,9 @@
+[submodule "pokeapi"]
+	path = pokeapi
+	url = https://github.com/jeremyhager/pokeapi
+[submodule "pokego"]
+	path = pokego
+	url = https://github.com/jeremyhager/pokego
+[submodule "pokedex-website"]
+	path = pokedex-website
+	url = https://github.com/jeremyhager/pokedex-website
